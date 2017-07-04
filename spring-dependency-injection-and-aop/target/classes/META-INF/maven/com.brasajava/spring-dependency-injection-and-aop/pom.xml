@@ -1,0 +1,19 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.brasajava</groupId>
+	<artifactId>spring-dependency-injection-and-aop</artifactId>
+	<version>01</version>
+	<name>DI and AOP</name>
+	<description>Spring in Action 4th edition parte one.</description>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>4.3.9.RELEASE</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<finalName>DIandAOP</finalName>
+	</build>
+</project>
