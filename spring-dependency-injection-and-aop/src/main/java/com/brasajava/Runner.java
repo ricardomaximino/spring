@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.core.env.AbstractEnvironment;
 
 import com.brasajava.business.registration.Bean;
 @ComponentScan
@@ -13,6 +14,7 @@ import com.brasajava.business.registration.Bean;
 public class Runner {
 
 	public static void main(String[] args) {
+		 System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "four");
 		ApplicationContext context = new AnnotationConfigApplicationContext(Runner.class);
 		
 	/*	for(String s : context.getBeanDefinitionNames()){
