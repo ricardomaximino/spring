@@ -6,12 +6,21 @@
 	<version>01</version>
 	<name>DI and AOP</name>
 	<description>Spring in Action 4th edition parte one.</description>
+
 	<dependencies>
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>4.3.9.RELEASE</version>
 		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.8.10</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<finalName>DIandAOP</finalName>
