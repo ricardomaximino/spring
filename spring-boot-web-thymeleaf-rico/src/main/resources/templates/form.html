@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous"/>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" th:href="@{/css/main.css}"
+	href="../../css/main.css" />
+
+<title>Form</title>
+</head>
+<body style="background-Color:black;">
+	<nav class="navbar navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="home.html">Spring Boot</a>		
+				<a class="navbar-brand" href="form.html">Form</a>	
+			</div>
+		</div>
+	</nav>
+
+	<div class="container">
+
+		<div class="starter-template">
+			<h1>Form Example</h1>
+			<h2>Here we are going to practice all the form usage.</h2>
+		</div>
+		<div>
+			<form action="#" th:action="@{/form}" th:object="${person}" method="post">
+				<table>
+					<tr>
+						<td class="collapse"><input type="hidden" th:field="*{id}"/></td>
+						<td>Name: </td>
+						<td><input type="text" th:field="*{name}"/></td>
+						<td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
+					</tr>
+					<tr>
+						<td>Age:</td>
+						<td><input type="text" th:field="*{age}"/></td>
+						<td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
+					</tr>
+					<tr th:each="contact,contactStat : *{contacts}">
+						<td class="collapse"><input type="hidden" th:field="*{contacts[__${contactStat.index}__].id}"/></td>
+						<td>Contact Description:</td>
+						<td><input type="text" th:field="*{contacts[__${contactStat.index}__].contactDescription}"/></td>
+						<td th:if="${#fields.hasErrors('contacts[__${contactStat.index}__].contactDescription')}" th:errors="*{contacts[__${contactStat.index}__].contactDescription}">Description Error</td>
+						
+						<td>Contact:</td>
+						<td><input type="text" th:field="*{contacts[__${contactStat.index}__].contactValue}"/></td>
+						<td th:if="${#fields.hasErrors('contacts[__${contactStat.index}__].contactValue')}" th:errors="*{contacts[__${contactStat.index}__].contactValue}">Contact Error</td>
+						<td><button type="submit" name="action" th:value="'delete_' + *{contacts[__${contactStat.index}__].id}">Delete</button></td>
+					</tr>
+					<tr>
+						<td>
+							<button type="submit" name="action" value="save">Save</button>
+							<button type="submit" name="action" value="new">New</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<div th:if="${listOfPeople}">
+			<table class="borderTable">
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Age</th>
+					<th>Func.</th>
+				</tr>
+				<tr th:each="person : ${listOfPeople}">
+					<td th:text="${person.id}" class="tableColumnSmall"></td>
+					<td th:text="${person.name}" class="tableColumnBig"></td>
+					<td th:text="${person.age}" class="tableColumnSmall"></td>
+					<td class="tableColumnSmall"><a th:href="@{form(id=${person.id})}">Edit</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</body>
+</html>

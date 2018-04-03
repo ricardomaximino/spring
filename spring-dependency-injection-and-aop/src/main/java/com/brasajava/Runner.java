@@ -14,13 +14,13 @@ import com.brasajava.business.registration.Bean;
 public class Runner {
 
 	public static void main(String[] args) {
-		 System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "four");
+		 System.setProperty(AbstractEnvironment.ACTIVE_PROFILES_PROPERTY_NAME, "four,fives");
 		ApplicationContext context = new AnnotationConfigApplicationContext(Runner.class);
 		
-	/*	for(String s : context.getBeanDefinitionNames()){
+		for(String s : context.getBeanDefinitionNames()){
 			System.out.println(s);
 			System.out.println(context.getBean(s).getClass());
-		}*/
+		}
 		Bean bean = (Bean) context.getBean("bean");
 		bean.theMethod();
 		((AnnotationConfigApplicationContext)context).close();

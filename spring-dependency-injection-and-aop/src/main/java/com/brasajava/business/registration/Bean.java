@@ -2,7 +2,6 @@ package com.brasajava.business.registration;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component

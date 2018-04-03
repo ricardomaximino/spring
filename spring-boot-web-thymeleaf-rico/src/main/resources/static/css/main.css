@@ -1,0 +1,22 @@
+h1{
+	color:#ac6;
+	clear:both;
+}
+
+h2{
+	color:cf2;
+	clear:both;
+}
+
+.collapse{
+	visibility: collapse
+}
+.borderTable td{
+	border: 1px solid white;
+}
+.tableColumnSmall{
+	width: 100px;
+}
+.tableColumnBig{
+	width:300px;
+}
